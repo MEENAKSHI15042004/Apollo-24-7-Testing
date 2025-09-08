@@ -4,9 +4,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions (
-		features = "src\\test\\resources\\Features",
+		features = {"src\\test\\resources\\Features"},
 		glue = "com.stepDefinitions",
-		plugin = {"pretty", "html:reports/cucumber-html-report.html"}
+		plugin = {"pretty", "html:reports/cucumber-html-report.html"},
+		tags = "not @Ignore"
 )
 
 

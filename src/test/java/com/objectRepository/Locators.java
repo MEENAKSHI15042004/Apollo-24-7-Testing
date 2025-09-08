@@ -30,4 +30,33 @@ public class Locators {
 	
 	// close button
 	public static By closebtn = By.xpath("//span[@class='Rb']");
+	
+	// close profile
+	public static By profileclose = By.xpath("//div[contains(@class, 'ProfileNew_icon-ic_cross')]");
+	
+	// click find doctor
+	public static By finddoctor = By.xpath("//a[text()='Find Doctors']");
+	
+	// enter speciality
+	public static By enterspeciality = By.xpath("//input[@placeholder='Enter Speciality']\r\n");
+	
+	// select specality
+	public static By selectspeciality = By.xpath("//span[normalize-space(text())='Anaesthesia']");
+	// date icon
+	public static By dateicon = By.xpath("//span[@class='QuickBook_dateImage__hbyKS icon-date']");
+	
+	//select date
+	public static By date = By.xpath("//abbr[text()='19']");
+	
+	// validate date
+	public static By validatedate = By.xpath("//span[text()='Fri 19th Sep']");
+	
+	// location
+	public static By location = By.xpath("//input[@placeholder='Search location']");
+	
+	// submit button
+	public static By submitbtn = By.xpath("//span[text()='Submit']");
+	
+	// validate find doctor
+	public static By validatefinddoctor = By.id("id=\"Hospital Visit\"");
 }

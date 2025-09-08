@@ -28,7 +28,7 @@ public class LoginPage{
 	ExtentTest extTest;
 	ExtentReports extReports;
 	String mobile_number;
-	String invalidmobile_number;
+	String invalidmobile_no;
 	String invalidotp;
 	Scanner scanner = new Scanner(System.in);
 	Properties prop = PropertyReader.readProperties();
@@ -41,7 +41,7 @@ public class LoginPage{
 	
 	public void clickloginbutton() {
 		
-		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(Locators.login)).click();
 	}
 	
@@ -85,9 +85,43 @@ public class LoginPage{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.validatelogin)).click();
 		WebElement mobile = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.mobilefield));
 		Reporter.generateReport(driver,extTest,Status.PASS,"User log in success");
+		driver.findElement(Locators.profileclose).click();
 	  }
 		catch (TimeoutException te) {
 			Reporter.generateReport(driver,extTest,Status.FAIL,"User log in failed");
+		}
+	}
+	
+	public void enterinvalidmobilenumber(String invalidmobile_number) {
+		try {
+			
+			WebElement invalidmobile = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.mobileNumberEntry));
+			invalidmobile.click();
+			invalidmobile_no = invalidmobile_number;
+			invalidmobile.sendKeys(invalidmobile_no);
+			String errmsg = driver.findElement(Locators.invalidmobileerrormsg).getText();	
+			Reporter.generateReport(driver,extTest,Status.FAIL,errmsg);
+			driver.findElement(Locators.closebtn).click();
+			}
+			catch(TimeoutException te) {
+				Reporter.generateReport(driver,extTest,Status.PASS,"Invalid mobile number accepted");
+			}
+	}
+	
+	public void enterinvalidotp() {
+		try {
+			System.out.print("Enter the otp : ");
+			invalidotp = scanner.next();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otpentry)).sendKeys(invalidotp);
+			driver.findElement(Locators.verifybutton).click();
+			wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			Reporter.generateReport(driver,extTest,Status.FAIL,"Invalid otp number is not accepted");
+			driver.findElement(Locators.closebtn).click();
+		}
+		catch (TimeoutException te) {
+			Reporter.generateReport(driver,extTest,Status.PASS,"Invalid otp number is acccepted");
+			
+			
 		}
 	}
 

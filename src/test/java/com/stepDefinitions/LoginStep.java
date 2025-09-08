@@ -56,5 +56,20 @@ public class LoginStep {
 	public void user_should_be_successfully_logged_in() {
 	   loginpage.validatelogin();
 	}
+	
+	@When("the user enter the invalid Mobile Number as {string}")
+	public void the_user_enter_the_invalid_mobile_number_as(String invalidmobile_number) {
+	    invalidmobile_number = excelData[1][0];
+	    loginpage.enterinvalidmobilenumber(invalidmobile_number);
+	    
+	}
+	@Then("an error message is displayed {string}")
+	public void an_error_message_is_displayed(String string) {
+		
+	}
+	@When("the user enter the invalid otp")
+	public void the_user_enter_the_invalid_otp() {
+	   loginpage.enterinvalidotp();
+	}
 
 }
