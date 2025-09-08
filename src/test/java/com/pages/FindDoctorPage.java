@@ -97,7 +97,16 @@ public class FindDoctorPage {
 	
 
 	public void submit() {
+		try {
+		
 		driver.findElement(Locators.submitbtn).click();
-	}
+		
+		 Reporter.generateReport(driver, extTest, Status.PASS, "Submit successfully");
+	    }
+		catch (TimeoutException te) {
+			Reporter.generateReport(driver, extTest, Status.FAIL, "sunmit unsuccessfull");
+		}
+			
+		}
 		
 }

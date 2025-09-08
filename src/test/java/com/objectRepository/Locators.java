@@ -59,4 +59,18 @@ public class Locators {
 	
 	// validate find doctor
 	public static By validatefinddoctor = By.id("id=\"Hospital Visit\"");
+	
+	// select type
+	public static By type = By.xpath("//label[normalize-space(text())='Consult Online']");
+	
+	// select doctor
+	public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. G Sakthi Vignesh']\r\n");
+	
+	// view details
+	public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. G Sakthi Vignesh']");
+	
+	//select consulationtype1
+	public static By consultationtype1 = By.xpath("//button[normalize-space(text())='Consult Online']");
+	// select consultation type
+	public static By consultationtype = By.xpath("//button[normalize-space(text())='Visit Doctor']");
 }
