@@ -2,23 +2,27 @@ package com.stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.pages.LaunchBrowserPage;
+import com.setup.Base;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LaunchBrowserSteps {
+public class LaunchBrowserStep {
 	
 	LaunchBrowserPage launchbrowserpage;
-	WebDriver driver ;
+	WebDriver driver = Hooks.driver ;
+	ExtentTest extTest = Hooks.extTest;
 	
 	
 	@Given("user launch the browser")
 	public void user_launch_the_browser() {
 		
-		launchbrowserpage = new LaunchBrowserPage(driver);
-		launchbrowserpage.launchbrowser();
+		System.out.print("Browser launched from the hooks class");
+		
+		launchbrowserpage = new LaunchBrowserPage(driver,extTest);
 	    
 	}
 	@When("user open the website")

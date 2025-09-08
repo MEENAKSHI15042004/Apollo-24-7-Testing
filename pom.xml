@@ -47,6 +47,12 @@
     <artifactId>poi-ooxml</artifactId>
     <version>5.4.1</version>
 </dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>6.0.0-M2</version>
+    <scope>test</scope>
+</dependency>
 </dependencies>
 <build>
   <plugins>
