@@ -65,7 +65,7 @@ public class AddPatientPageStep {
 	}
 	@Then("user click the submit button")
 	public void user_click_the_submit_button() {
-	    addpatientpage.submit();
+	    addpatientpage.submitpatient();
 	}
 
 

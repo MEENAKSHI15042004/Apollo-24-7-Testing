@@ -119,4 +119,37 @@ public class Locators {
 	
 	// save button
 	public static By save = By.xpath("//button[.//span[text()='Save']]");
+	
+	// cancel button
+	public static By cancel = By.xpath("/html/body/div[4]/div[2]/div/div[3]/button[1]");
+	
+	// Appointment details
+	public static By appointmentdetails = By.xpath("//p[text()='Appointment Details']");
+	
+	// patient details 
+	public static By patientdetails = By.xpath("//p[text()='Patient Details']");
+	
+	// confirm Appointment
+	public static By confirmappointment = By.xpath("//button[span[text()='Confirm Appointment']]");
+	
+	// pop up Appointment details
+	public static By popupappointment = By.xpath("//h2[text()='Appointment Confirmation']");
+	
+	// pop up ok
+	public static By popupok =  By.xpath("//span[text()='OK, GOT IT']");
+	
+	// login popup
+	public static By loginpopup = By.xpath("//div[@id='loginPopup']");
+	
+	// my appointments
+	public static By myappointment = By.xpath("//a[@href='/appointments']");
+	
+	// doctor in my appointment
+	public static By myappointmentdoctor = By.xpath("//p[text()='Dr. Vijay Dureja']");
+	
+	// total charges
+	public static By totalcharge = By.xpath("//div[text()='Total Charges']");
+	
+	// logout
+	public static By logout = By.xpath("//span[text()=' Logout']");
 }

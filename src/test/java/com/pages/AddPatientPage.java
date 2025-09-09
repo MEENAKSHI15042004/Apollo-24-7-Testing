@@ -147,7 +147,7 @@ public class AddPatientPage {
 		
 	}
 	
-	public void submit() {
+	public void submitpatient() {
 		try {
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.save)).click();

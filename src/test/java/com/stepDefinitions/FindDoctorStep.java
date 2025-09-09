@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.FindDoctorPage;
 
-import io.cucumber.java.en.Given;
+//import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
