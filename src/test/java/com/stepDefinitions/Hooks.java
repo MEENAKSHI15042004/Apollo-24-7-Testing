@@ -22,7 +22,10 @@ public class Hooks extends Base{
 	static ExtentReports extReports;
 	public static ExtentTest extTest;
 	
-	public static int currentrow = 0;
+	//public static int currentrow = 0;
+	public static int firstrow = 0;
+	public static int secondrow = 1;
+	public static int thirdrow = 3;
 	
 	@BeforeAll
 	public static void beforeAll() {
@@ -48,7 +51,7 @@ public class Hooks extends Base{
 	
 	@After
 	public void tearDown() {
-		currentrow++;
+		//currentrow++;
 		
 		
 	}

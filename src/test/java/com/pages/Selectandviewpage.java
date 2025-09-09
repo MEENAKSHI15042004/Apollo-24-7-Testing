@@ -34,17 +34,6 @@ public class Selectandviewpage {
 		this.extTest = extTest4;
 	}
 	
-//	public void selectdoctor() {
-//		try {
-//		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-//		wait.until(ExpectedConditions.elementToBeClickable(Locators.selectdoctor)).click();
-//		Reporter.generateReport(driver, extTest, Status.PASS, "Doctor selected successfully");
-//		}
-//		catch (TimeoutException te) {
-//			Reporter.generateReport(driver, extTest, Status.FAIL, "Doctor not selected successfully");
-//		}
-//	}
-	
 	public void selectdoctor() {
 		  try {
 		        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -55,7 +44,6 @@ public class Selectandviewpage {
 		        ));
 		        
 		        // Scroll into view just in case
-		        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", selectdoctor);
 		        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});", selectdoctor);
 
 		        // Click the button

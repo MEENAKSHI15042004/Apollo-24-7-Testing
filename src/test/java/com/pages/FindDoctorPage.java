@@ -51,7 +51,6 @@ public class FindDoctorPage {
 			Reporter.generateReport(driver,extTest,Status.PASS,"specality selected successfully");
 		}
 		catch(TimeoutException te) {
-			//fail the extent report
 			Reporter.generateReport(driver,extTest,Status.FAIL,"specality not selected successfully");
 		}
 	}
@@ -65,7 +64,6 @@ public class FindDoctorPage {
 			Reporter.generateReport(driver,extTest,Status.PASS,"Date selected successfully");
 		}
 		catch(TimeoutException te) {
-			//fail the extent report
 			Reporter.generateReport(driver,extTest,Status.FAIL,"Date not selected successfully");
 		}
 	}

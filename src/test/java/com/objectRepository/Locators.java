@@ -67,6 +67,7 @@ public class Locators {
 	// select doctor
 	//public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. G Sakthi Vignesh']\r\n");
 	  public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. Vijay Dureja']");
+	  
 	// view details
 	//public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. G Sakthi Vignesh']");
 	  public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. Vijay Dureja']");
@@ -82,5 +83,40 @@ public class Locators {
 	
 	// schedule Appointment
 	public static By scheduleAppointment = By.xpath("//span[normalize-space(text())='Schedule Appointment']");
-	//public static By scheduleAppointment = By.xpath("//*[@id=\"mainContainerCT\"]/div[2]/div[4]/div[2]/a[2]/button");
+	
+	// enter change
+	public static By change = By.xpath("//button[.//span[text()='Change']]");
+	
+	// click add patient
+	public static By clickaddpatient = By.xpath("//button[@aria-label='Button' and span[text()='Add Patient']]");
+	
+	// click first name
+	public static By firstname = By.xpath("//input[@placeholder='First Name']");
+	
+	// click last name
+	public static By lastname = By.xpath("//input[@placeholder='Last name']");
+	
+	// click dob
+	public static By dob = By.xpath("//input[@placeholder='DD / MM / YYYY']");
+	
+	// selectdob
+	public static By selectdob = By.xpath("//button[.//abbr[@aria-label=\"September 3, 2025\"]]");
+	
+	// click profile create for
+	public static By profilecreatefor = By.xpath("//button[text()='Select relation']");
+	
+	// click me
+	public static By me = By.xpath("//li[@role='option' and .//span[text()='Me']]");
+	
+	// click gender
+	public static By gender = By.xpath("//button[text()='Female']");
+	
+	// click email
+	public static By email = By.xpath("//input[@placeholder='Enter Email']");
+	
+	// check box
+	public static By checkbox = By.xpath("//input[@type=\"checkbox\" and contains(@class, \"AddNewPatientModal_inputCheckbox__RVKPI\")]");
+	
+	// save button
+	public static By save = By.xpath("//button[.//span[text()='Save']]");
 }
