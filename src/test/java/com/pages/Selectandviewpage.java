@@ -3,8 +3,12 @@ package com.pages;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,16 +34,40 @@ public class Selectandviewpage {
 		this.extTest = extTest4;
 	}
 	
+//	public void selectdoctor() {
+//		try {
+//		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+//		wait.until(ExpectedConditions.elementToBeClickable(Locators.selectdoctor)).click();
+//		Reporter.generateReport(driver, extTest, Status.PASS, "Doctor selected successfully");
+//		}
+//		catch (TimeoutException te) {
+//			Reporter.generateReport(driver, extTest, Status.FAIL, "Doctor not selected successfully");
+//		}
+//	}
+	
 	public void selectdoctor() {
-		try {
-		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(Locators.selectdoctor)).click();
-		Reporter.generateReport(driver, extTest, Status.PASS, "Doctor selected successfully");
+		  try {
+		        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		        // Wait explicitly until the button is clickable
+		        WebElement selectdoctor = wait.until(ExpectedConditions.elementToBeClickable(
+		            By.xpath("//p[normalize-space(text())='Dr. Vijay Dureja']")
+		        ));
+		        
+		        // Scroll into view just in case
+		        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", selectdoctor);
+		        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});", selectdoctor);
+
+		        // Click the button
+		        selectdoctor.click();
+		        
+		        Reporter.generateReport(driver, extTest, Status.PASS, "Doctor selected Successfully");
+		    } catch (TimeoutException te) {
+		        Reporter.generateReport(driver, extTest, Status.FAIL, "Doctor not selected Successfully");
+		    } catch (ElementClickInterceptedException ecie) {
+		        Reporter.generateReport(driver, extTest, Status.FAIL, "Element was intercepted – unable to click");
+		    }
 		}
-		catch (TimeoutException te) {
-			Reporter.generateReport(driver, extTest, Status.FAIL, "Doctor not selected successfully");
-		}
-	}
 	
 	public void viewdetails() {
 		try {

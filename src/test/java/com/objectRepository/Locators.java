@@ -42,6 +42,7 @@ public class Locators {
 	
 	// select specality
 	public static By selectspeciality = By.xpath("//span[normalize-space(text())='Anaesthesia']");
+	
 	// date icon
 	public static By dateicon = By.xpath("//span[@class='QuickBook_dateImage__hbyKS icon-date']");
 	
@@ -64,13 +65,22 @@ public class Locators {
 	public static By type = By.xpath("//label[normalize-space(text())='Consult Online']");
 	
 	// select doctor
-	public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. G Sakthi Vignesh']\r\n");
-	
+	//public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. G Sakthi Vignesh']\r\n");
+	  public static By selectdoctor = By.xpath("//p[normalize-space(text())='Dr. Vijay Dureja']");
 	// view details
-	public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. G Sakthi Vignesh']");
+	//public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. G Sakthi Vignesh']");
+	  public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. Vijay Dureja']");
 	
-	//select consulationtype1
-	public static By consultationtype1 = By.xpath("//button[normalize-space(text())='Consult Online']");
 	// select consultation type
 	public static By consultationtype = By.xpath("//button[normalize-space(text())='Visit Doctor']");
+	
+	//select date
+	public static By selectdate1 = By.xpath("//p[normalize-space(text())='14']");
+	
+	// select time
+	public static By selecttime = By.xpath("//p[normalize-space(text())='06:45 PM']");
+	
+	// schedule Appointment
+	public static By scheduleAppointment = By.xpath("//span[normalize-space(text())='Schedule Appointment']");
+	//public static By scheduleAppointment = By.xpath("//*[@id=\"mainContainerCT\"]/div[2]/div[4]/div[2]/a[2]/button");
 }

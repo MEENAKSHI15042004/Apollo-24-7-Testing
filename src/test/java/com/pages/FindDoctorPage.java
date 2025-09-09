@@ -74,6 +74,7 @@ public class FindDoctorPage {
 	        // Wait for location input and type "chennai"
 	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
 	        location.click();
+	        location.clear();
 	        location.sendKeys("chennai");
 
 	        // Wait for the suggestion to appear
