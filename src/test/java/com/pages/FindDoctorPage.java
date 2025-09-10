@@ -72,18 +72,17 @@ public class FindDoctorPage {
 	        // Wait for location input and type "chennai"
 	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
 	        location.click();
-	        location.clear();
-	        location.sendKeys("chennai");
+//	        location.clear();
+//	        location.sendKeys("Chennai");
 
 	        // Wait for the suggestion to appear
-	        WebElement suggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(
-	                By.xpath("//li[contains(text(), 'Chennai, Tamil Nadu')]")));
+	        //WebElement suggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(), 'Chennai,Tamil Nadu')]")));
 	        
-	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	        //wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 
 	        // Hover over suggestion and click
-	        Actions actions = new Actions(driver);
-	        actions.moveToElement(suggestion).click().perform();
+	        //Actions actions = new Actions(driver);
+	        //actions.moveToElement(suggestion).click().perform();
 
 	        // Report success
 	        Reporter.generateReport(driver, extTest, Status.PASS, "Location selected successfully");

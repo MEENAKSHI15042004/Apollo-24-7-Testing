@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="0" failed="6" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-09T23:14:20 IST" name="Default suite" finished-at="2025-09-09T23:15:50 IST" duration-ms="90715">
+  <suite started-at="2025-09-10T13:55:47 IST" name="Default suite" finished-at="2025-09-10T13:56:12 IST" duration-ms="24596">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-09-09T23:14:20 IST" name="Default test" finished-at="2025-09-09T23:15:50 IST" duration-ms="90715">
+    <test started-at="2025-09-10T13:55:47 IST" name="Default test" finished-at="2025-09-10T13:56:12 IST" duration-ms="24596">
       <class name="com.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:14:20 IST" name="setUpClass" finished-at="2025-09-09T23:14:25 IST" duration-ms="4887" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:47 IST" name="setUpClass" finished-at="2025-09-10T13:55:51 IST" duration-ms="3258" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@26994c6a]]>
+                <![CDATA[org.testng.TestRunner@3002e397]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:14:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:14:26 IST" duration-ms="1142" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:55:51 IST" duration-ms="58" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +34,55 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.core.runner.DuplicateStepDefinitionException">
+            <message>
+              <![CDATA[Duplicate step definitions in com.stepDefinitions.AddPatientInvalidPageOneStep.user_select_the_add_patient() and com.stepDefinitions.AddPatientPageStep.user_select_the_add_patient()]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.core.runner.DuplicateStepDefinitionException: Duplicate step definitions in com.stepDefinitions.AddPatientInvalidPageOneStep.user_select_the_add_patient() and com.stepDefinitions.AddPatientPageStep.user_select_the_add_patient()
+at io.cucumber.core.runner.CachingGlue.lambda$prepareGlue$3(CachingGlue.java:313)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at io.cucumber.core.runner.CachingGlue.prepareGlue(CachingGlue.java:307)
+at io.cucumber.core.runner.Runner.runPickle(Runner.java:73)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.core.runner.DuplicateStepDefinitionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:14:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:11 IST" duration-ms="45076" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:55:51 IST" duration-ms="97" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -50,10 +95,76 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user is on the login page' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on the login page")
+public void user_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the valid Mobile Number as {string}")
+public void the_user_enter_the_valid_mobile_number_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user request an otp")
+public void user_request_an_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the otp")
+public void user_enter_the_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be successfully logged in")
+public void user_should_be_successfully_logged_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user is on the login page' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on the login page")
+public void user_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the valid Mobile Number as {string}")
+public void the_user_enter_the_valid_mobile_number_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user request an otp")
+public void user_request_an_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the otp")
+public void user_enter_the_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be successfully logged in")
+public void user_should_be_successfully_logged_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user is on the login page(file:///C:/Users/SMILE/Desktop/Apollo%20Testing/Apollo247TestingApp/src/test/resources/Features/2_Login.feature:16)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:39 IST" duration-ms="28593" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:55:51 IST" duration-ms="10" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -66,10 +177,76 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks the find doctor' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks the find doctor")
+public void user_clicks_the_find_doctor() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the speciality")
+public void user_select_the_speciality() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the date")
+public void user_select_the_date() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the location")
+public void user_enter_the_location() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("submit the data")
+public void submit_the_data() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks the find doctor' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks the find doctor")
+public void user_clicks_the_find_doctor() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the speciality")
+public void user_select_the_speciality() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the date")
+public void user_select_the_date() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the location")
+public void user_enter_the_location() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("submit the data")
+public void submit_the_data() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks the find doctor(file:///C:/Users/SMILE/Desktop/Apollo%20Testing/Apollo247TestingApp/src/test/resources/Features/3_Finddoctor.feature:3)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:41 IST" duration-ms="1360" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:55:51 IST" duration-ms="7" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -82,10 +259,56 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'the user select the doctor from the list' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user select the doctor from the list")
+public void the_user_select_the_doctor_from_the_list() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user view the doctor details")
+public void user_view_the_doctor_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user select the consultation type")
+public void user_select_the_consultation_type() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'the user select the doctor from the list' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user select the doctor from the list")
+public void the_user_select_the_doctor_from_the_list() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user view the doctor details")
+public void user_view_the_doctor_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user select the consultation type")
+public void user_select_the_consultation_type() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.the user select the doctor from the list(file:///C:/Users/SMILE/Desktop/Apollo%20Testing/Apollo247TestingApp/src/test/resources/Features/4_Selectdoctor.feature:3)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:42 IST" duration-ms="830" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:55:51 IST" duration-ms="6" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -98,10 +321,56 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user select the appointment date' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user select the appointment date")
+public void user_select_the_appointment_date() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the appointment time")
+public void user_select_the_appointment_time() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user clicks the schedule Appointment")
+public void user_clicks_the_schedule_appointment() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user select the appointment date' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user select the appointment date")
+public void user_select_the_appointment_date() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user select the appointment time")
+public void user_select_the_appointment_time() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user clicks the schedule Appointment")
+public void user_clicks_the_schedule_appointment() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user select the appointment date(file:///C:/Users/SMILE/Desktop/Apollo%20Testing/Apollo247TestingApp/src/test/resources/Features/5_Scheduleappointment.feature:3)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:45 IST" duration-ms="3560" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:55:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T13:56:12 IST" duration-ms="20906" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -114,26 +383,76 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user enter the first name "<first name>"' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user enter the first name {string}")
+public void user_enter_the_first_name(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the last name {string}")
+public void user_enter_the_last_name(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user click the gender")
+public void user_click_the_gender() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the email {string}")
+public void user_enter_the_email(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user click the check box")
+public void user_click_the_check_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user enter the first name "<first name>"' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user enter the first name {string}")
+public void user_enter_the_first_name(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the last name {string}")
+public void user_enter_the_last_name(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user click the gender")
+public void user_click_the_gender() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the email {string}")
+public void user_enter_the_email(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user click the check box")
+public void user_click_the_check_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user enter the first name "<first name>"(file:///C:/Users/SMILE/Desktop/Apollo%20Testing/Apollo247TestingApp/src/test/resources/Features/7_Addpatient.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T23:15:50 IST" duration-ms="4883" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verification of Appointment confirmation"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Confirm Appointment successfully"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-09T23:15:50 IST" name="tearDownClass" finished-at="2025-09-09T23:15:50 IST" duration-ms="346" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunner@4009e306]" started-at="2025-09-10T13:56:12 IST" name="tearDownClass" finished-at="2025-09-10T13:56:12 IST" duration-ms="202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

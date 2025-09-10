@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.ConfirmAppointmentPage;
-import com.pages.Selectandviewpage;
 
 import io.cucumber.java.en.When;
 
