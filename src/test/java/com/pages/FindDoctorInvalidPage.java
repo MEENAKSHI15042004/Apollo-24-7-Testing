@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,10 +42,40 @@ public class FindDoctorInvalidPage {
 	        wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dateicon)).click();
 			driver.findElement(Locators.date).click();
 			
+			WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
+			location.click();
+			driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+			driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+			
 			driver.findElement(Locators.submitbtn).click();
 
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			Reporter.generateReport(driver,extTest,Status.FAIL,"Please select Area/Pin code and speciality");
+		}
+		catch(TimeoutException te) {
+			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+		}
+		
+	}
+	
+	public void enterdateandlocationonly(String locationdata) {
+		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.elementToBeClickable(Locators.finddoctor)).click();
+		
+		try {        
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dateicon)).click();
+			driver.findElement(Locators.date).click();
+			
+			WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
+			location.click();
+			driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+			driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+			
+			location.sendKeys(locationdata);
+			driver.findElement(Locators.submitbtn).click();
+
+			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+			Reporter.generateReport(driver,extTest,Status.FAIL,"Please select the speciality");
 		}
 		catch(TimeoutException te) {
 			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
@@ -62,6 +93,11 @@ public class FindDoctorInvalidPage {
 	        wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dateicon)).click();
 			driver.findElement(Locators.date).click();
 			
+			 WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
+			 location.click();
+			 driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+			 driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+			
 			driver.findElement(Locators.submitbtn).click();
 
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -73,7 +109,7 @@ public class FindDoctorInvalidPage {
 		
 	}
 	
-	public void otherlocation() {
+	public void otherlocation(String locationdata) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(Locators.finddoctor)).click();
 		try {
@@ -84,9 +120,11 @@ public class FindDoctorInvalidPage {
 			driver.findElement(Locators.date).click();
 			
 		   WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
-	        location.click();
-	        location.sendKeys("newyork");
-	        driver.findElement(Locators.submitbtn).click();
+		   location.click();
+		   driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+		   driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+	       location.sendKeys(locationdata);
+	       driver.findElement(Locators.submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	        Reporter.generateReport(driver,extTest,Status.FAIL,"Please select the location in India");
@@ -97,7 +135,7 @@ public class FindDoctorInvalidPage {
 		
 	}
 	
-	public void pincode() {
+	public void pincode(String pincodedata) {
 		
 		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(Locators.finddoctor)).click();
@@ -109,8 +147,11 @@ public class FindDoctorInvalidPage {
 			driver.findElement(Locators.date).click();
 		   
 			WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
-	        location.click();
-	        location.sendKeys("1234567");
+			 location.click();
+			driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+			driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+	       
+	        location.sendKeys(pincodedata);
 	        driver.findElement(Locators.submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -123,7 +164,7 @@ public class FindDoctorInvalidPage {
 	}
 		
 	
-	public void enterlocationonly() {
+	public void enterlocationonly(String locationdata) {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(Locators.finddoctor)).click();
 		try {
@@ -135,7 +176,9 @@ public class FindDoctorInvalidPage {
 		   
 			WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
 	        location.click();
-	        location.sendKeys("chennai");
+			driver.findElement(Locators.location).sendKeys(Keys.CONTROL + "a");
+			driver.findElement(Locators.location).sendKeys(Keys.BACK_SPACE);
+	        location.sendKeys(locationdata);
 	        driver.findElement(Locators.submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));

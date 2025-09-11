@@ -19,6 +19,9 @@ public class Locators {
 	// verify button
 	public static By verifybutton = By.xpath("//button[contains(text(), 'Verify')]");
 	
+	// resend button
+	public static By resendbtn = By.xpath("//span[text()='Resend OTP']");
+	
 	//validate login
 	public static By validatelogin = By.xpath("//*[@id=\"loginPopup\"]/img");
 	
@@ -142,7 +145,8 @@ public class Locators {
 	public static By loginpopup = By.xpath("//div[@id='loginPopup']");
 	
 	// my appointments
-	public static By myappointment = By.xpath("//a[@href='/appointments']");
+	//public static By myappointment = By.xpath("//a[@href='/appointments']");
+	public static By myappointment = By.xpath("//div[contains(@class,'account')]//a[normalize-space(text())='My Appointments']");
 	
 	// doctor in my appointment
 	public static By myappointmentdoctor = By.xpath("//p[text()='Dr. Vijay Dureja']");
@@ -152,4 +156,20 @@ public class Locators {
 	
 	// logout
 	public static By logout = By.xpath("//span[text()=' Logout']");
+	
+	// manage
+	public static By manage = By.xpath("//span[text()='MANAGE']");
+	
+	// cancel appointment
+	public static By cancelappointment = By.xpath("//span[text()='Cancel Appointment']");
+	
+	// cancel consult
+	public static By cancelconsult = By.xpath("//span[text()='Cancel Consult']");
+	
+	// submit request
+	public static By submitrequest = By.xpath("//span[text()='Submit Request']");
+	
+	// ok/gotit
+	public static By gotit = By.xpath("//span[text()='OK, GOT IT']");
+	
 }

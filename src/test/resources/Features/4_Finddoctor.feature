@@ -1,4 +1,5 @@
 Feature:Find the doctor
+
 Scenario:Verification of finding the doctor successfully
 When user clicks the find doctor
 And user select the speciality

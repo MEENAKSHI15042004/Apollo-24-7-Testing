@@ -47,10 +47,7 @@ public class LoginStep {
 	}
 	@When("user enter the otp")
 	public void user_enter_the_otp() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter OTP : ");
-		String otp = scanner.nextLine();
-		loginpage.enterotp(otp);
+		loginpage.enterotp();
 	   
 	}
 	@Then("user should be successfully logged in")

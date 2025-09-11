@@ -72,17 +72,20 @@ public class FindDoctorPage {
 	        // Wait for location input and type "chennai"
 	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
 	        location.click();
-//	        location.clear();
-//	        location.sendKeys("Chennai");
+	        // location.clear();
+	        location.sendKeys("Chennai");
 
 	        // Wait for the suggestion to appear
-	        //WebElement suggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(), 'Chennai,Tamil Nadu')]")));
+//	        WebElement suggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(), 'Chennai,Tamil Nadu')]")));
+//	        
+//	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+//
+//	        //Hover over suggestion and click
+//	        Actions actions = new Actions(driver);
+//	        actions.moveToElement(suggestion).click().perform();
 	        
-	        //wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-
-	        // Hover over suggestion and click
-	        //Actions actions = new Actions(driver);
-	        //actions.moveToElement(suggestion).click().perform();
+	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	        
 
 	        // Report success
 	        Reporter.generateReport(driver, extTest, Status.PASS, "Location selected successfully");
@@ -93,6 +96,37 @@ public class FindDoctorPage {
 	    }
 	}
 	
+//	public void selectlocation() {
+//	    try {
+//	    	
+//	    	String city = "Chennai";
+//	        // Type city in the location box
+//	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
+//	        location.click();
+//	        location.clear();
+//	        location.sendKeys(city);
+//
+//	        // Wait for dropdown list to appear
+//	        List<WebElement> suggestions = wait.until(ExpectedConditions
+//	                .visibilityOfAllElementsLocatedBy(By.xpath("//li//div[contains(@class,'css')]")));
+//
+//	        // Loop through suggestions and click the matching one
+//	        for (WebElement option : suggestions) {
+//	            if (option.getText().trim().equalsIgnoreCase(city + ", Tamil Nadu")) {
+//	                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
+//	                Reporter.generateReport(driver, extTest, Status.PASS, "Location selected: " + city);
+//	                return;
+//	            }
+//	        }
+//
+//	        Reporter.generateReport(driver, extTest, Status.FAIL, "No matching suggestion found for: " + city);
+//
+//	    } catch (TimeoutException te) {
+//	        Reporter.generateReport(driver, extTest, Status.FAIL, "Location not selected successfully");
+//	    }
+//	}
+
+
 
 	public void submit() {
 		try {
@@ -102,7 +136,7 @@ public class FindDoctorPage {
 		 Reporter.generateReport(driver, extTest, Status.PASS, "Submit successfully");
 	    }
 		catch (TimeoutException te) {
-			Reporter.generateReport(driver, extTest, Status.FAIL, "sunmit unsuccessfull");
+			Reporter.generateReport(driver, extTest, Status.FAIL, "submit unsuccessfull");
 		}
 			
 		}

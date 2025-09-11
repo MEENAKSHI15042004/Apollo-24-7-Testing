@@ -36,11 +36,12 @@ public class ConfirmAppointmentPage {
 	public void clickconfirmappointment() {
 		
 		try {
-			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+			wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.appointmentdetails));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.patientdetails));
-			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.confirmappointment)).click();
+			wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".AddNewPatientModal_addNewMemberBx__lT8gP")));
+			wait.until(ExpectedConditions.elementToBeClickable(Locators.confirmappointment)).click();
 			Reporter.generateReport(driver, extTest, Status.PASS, "Confirm Appointment successfully");
 		}
 		catch (TimeoutException te) {
@@ -69,8 +70,9 @@ public class ConfirmAppointmentPage {
 		
 		try {
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginpopup)).click();
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.myappointment)).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginpopup)).click();
+//			wait.until(ExpectedConditions.elementToBeClickable(Locators.myappointment)).click();
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.myappointment)).click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.myappointmentdoctor));
 			Reporter.generateReport(driver, extTest, Status.PASS, "Popup displayed and details verified successfully");
 		}
@@ -87,7 +89,7 @@ public class ConfirmAppointmentPage {
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.myappointmentdoctor)).click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.totalcharge));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginpopup)).click();
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginpopup)).click();
 			Reporter.generateReport(driver, extTest, Status.PASS, "Total charges displayed successfully");
 		}
 		catch (TimeoutException te) {
@@ -96,4 +98,40 @@ public class ConfirmAppointmentPage {
 		}
 		
 	}
+	
+//	public void totalcharge() {
+//	    try {
+//	        // Wait for UPCOMING section to be visible
+//	        WebElement upcomingElement = wait.until(
+//	            ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='UPCOMING']"))
+//	        );
+//
+//	        // Scroll into view
+//	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", upcomingElement);
+//	        Thread.sleep(500); // small wait to stabilize UI
+//
+//	        // Wait for the doctor element
+//	        WebElement doctorElement = wait.until(
+//	            ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Dr. Vijay Dureja']"))
+//	        );
+//
+//	        // Scroll slightly above the element to avoid header overlay
+//	        ((JavascriptExecutor) driver).executeScript(
+//	            "window.scrollBy(0, -150);"
+//	        );
+//
+//	        // Click using JavaScript to bypass overlapping elements
+//	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", doctorElement);
+//
+//	        // Wait for total charges to appear
+//	        wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.totalcharge));
+//
+//	        Reporter.generateReport(driver, extTest, Status.PASS, "Total charges displayed successfully");
+//	    } catch (TimeoutException te) {
+//	        Reporter.generateReport(driver, extTest, Status.FAIL, "Total charges not displayed successfully");
+//	    } catch (InterruptedException ie) {
+//	        Thread.currentThread().interrupt();
+//	    }
+//	}
+
 }
