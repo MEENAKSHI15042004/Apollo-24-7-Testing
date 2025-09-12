@@ -1,12 +1,9 @@
 package com.stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.DataProvider;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.parameters.ExcelReader;
 import com.setup.Base;
 
 import io.cucumber.java.After;
@@ -22,7 +19,6 @@ public class Hooks extends Base{
 	static ExtentReports extReports;
 	public static ExtentTest extTest;
 	
-	//public static int currentrow = 0;
 	public static int firstrow = 0;
 	public static int secondrow = 1;
 	public static int thirdrow = 3;
@@ -30,7 +26,7 @@ public class Hooks extends Base{
 	@BeforeAll
 	public static void beforeAll() {
 		
-		spark = new ExtentSparkReporter("ExtentReport.html");
+		spark = new ExtentSparkReporter("reports/ExtentReport.html");
 		extReports = new ExtentReports();
 		extReports.attachReporter(spark);
 		launchBrowser();
@@ -51,8 +47,6 @@ public class Hooks extends Base{
 	
 	@After
 	public void tearDown() {
-		//currentrow++;
-		
 		
 	}
 

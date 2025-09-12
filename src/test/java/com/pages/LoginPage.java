@@ -10,16 +10,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectRepository.Locators;
 import com.setup.Base;
 import com.setup.PropertyReader;
 import com.setup.Reporter;
-import com.stepDefinitions.Hooks;
 
 public class LoginPage{
 	
@@ -34,6 +30,39 @@ public class LoginPage{
 	Scanner scanner = new Scanner(System.in);
 	Properties prop = PropertyReader.readProperties();
 	
+	// login button
+	public static By login = By.xpath("//span[text()='Login']");
+	
+	// Mobile Number entry
+	public static By mobileNumberEntry = By.xpath("//input[@name='mobileNumber']");
+	
+	// continue button
+	public static By continueButton = By.xpath("//button[contains(text(),'Continue')]");
+
+	// OTP entry
+	public static By otpentry = By.xpath("//input[@title='Please enter the otp']");
+	
+	// verify button
+	public static By verifybutton = By.xpath("//button[contains(text(), 'Verify')]");
+	
+	// resend button
+	public static By resendbtn = By.xpath("//span[text()='Resend OTP']");
+	
+	//validate login
+	public static By validatelogin = By.xpath("//*[@id=\"loginPopup\"]/img");
+	
+	//mobile field
+	public static By mobilefield = By.xpath("//*[@id=\"fixedHeaderCT\"]/div/div[1]/div[2]/ul/li/div/div/div[2]/div[2]/div[2]/div/p[2]");
+	
+	// invalid message
+	public static By invalidmobileerrormsg = By.xpath("//div[text()='This seems like a wrong number']");
+	
+	// close button
+	public static By closebtn = By.xpath("//span[@class='Rb']");
+	
+	// close profile
+	public static By profileclose = By.xpath("//div[contains(@class, 'ProfileNew_icon-ic_cross')]");
+	
 	public LoginPage(WebDriver driver, ExtentTest extTest2) {
 		this.driver = Base.driver;
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -43,19 +72,19 @@ public class LoginPage{
 	public void clickloginbutton() {
 		
 		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(Locators.login)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(login)).click();
 	}
 	
 	public void entermobilenumber(String mnumber) {
 		
 		try {
 		
-		WebElement mobile = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.mobileNumberEntry));
+		WebElement mobile = wait.until(ExpectedConditions.visibilityOfElementLocated(mobileNumberEntry));
 		mobile.click();
 		mobile_number = mnumber;
 		mobile.sendKeys(mobile_number);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(Locators.continueButton)).click();	
+		wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();	
 		Reporter.generateReport(driver,extTest,Status.PASS,"Valid mobile number is accepted");
 		}
 		catch(TimeoutException te) {
@@ -65,35 +94,19 @@ public class LoginPage{
 		
 	}
 	public void clickcontinuebutton() {
-		driver.findElement(Locators.continueButton).click();
+		driver.findElement(continueButton).click();
 	}
-	
-//	public void enterotp(String otp) {
-//		try {
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otpentry));
-//        driver.findElement(Locators.otpentry).sendKeys(otp);
-//		driver.findElement(Locators.verifybutton).click();
-//		Reporter.generateReport(driver,extTest,Status.PASS,"Valid otp number is accepted");
-//		}
-//		catch(TimeoutException te) {
-//			//fail the extent report
-//			Reporter.generateReport(driver,extTest,Status.FAIL,"Valid otp number is not acccepted");
-//		}
-//	}
-	
+		
 	public void enterotp() {
 		
 	    try {
 	        System.out.println("Enter the OTP received (you have 40 seconds): ");
-	        String userInput = waitForConsoleInput(40);  // first 40s
+	        String userInput = waitForConsoleInput(40); 
 
 	        if (userInput == null || userInput.isEmpty()) {
-	            // No OTP typed in console → click resend
-	            WebElement resendBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.resendbtn));
+	            WebElement resendBtn = wait.until(ExpectedConditions.elementToBeClickable(resendbtn));
 	            resendBtn.click();
 	            Reporter.generateReport(driver, extTest, Status.INFO, "No OTP entered in 40s. Resend OTP clicked.");
-
-	            // ✅ wait again for OTP after resend
 	            System.out.println("Enter the OTP received after resend (you have 40 seconds): ");
 	            userInput = waitForConsoleInput(40);
 	        }
@@ -102,13 +115,11 @@ public class LoginPage{
 	            Reporter.generateReport(driver, extTest, Status.FAIL, "No OTP entered even after resend.");
 	            return;
 	        }
-
-	        // ✅ send OTP to webpage
 	        validotp = userInput;
-	        WebElement otp_input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otpentry));
+	        WebElement otp_input = wait.until(ExpectedConditions.visibilityOfElementLocated(otpentry));
 	        otp_input.click();
 	        otp_input.sendKeys(validotp);
-	        driver.findElement(Locators.verifybutton).click();
+	        driver.findElement(verifybutton).click();
 
 	        Reporter.generateReport(driver, extTest, Status.PASS, "Valid OTP entered and verified");
 
@@ -133,17 +144,17 @@ public class LoginPage{
 	                break;
 	            }
 	        }
-	        Thread.sleep(500); // check every 0.5s
+	        Thread.sleep(500); 
 	    }
 	    return input;
 	}
 	
 	public void validatelogin() {
 		try {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.validatelogin)).click();
-		WebElement mobile = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.mobilefield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(validatelogin)).click();
+		WebElement mobile = wait.until(ExpectedConditions.visibilityOfElementLocated(mobilefield));
 		Reporter.generateReport(driver,extTest,Status.PASS,"User log in success");
-		driver.findElement(Locators.profileclose).click();
+		driver.findElement(profileclose).click();
 	  }
 		catch (TimeoutException te) {
 			Reporter.generateReport(driver,extTest,Status.FAIL,"User log in failed");
@@ -153,13 +164,13 @@ public class LoginPage{
 	public void enterinvalidmobilenumber(String invalidmobile_number) {
 		try {
 			
-			WebElement invalidmobile = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.mobileNumberEntry));
+			WebElement invalidmobile = wait.until(ExpectedConditions.visibilityOfElementLocated(mobileNumberEntry));
 			invalidmobile.click();
 			invalidmobile_no = invalidmobile_number;
 			invalidmobile.sendKeys(invalidmobile_no);
-			String errmsg = driver.findElement(Locators.invalidmobileerrormsg).getText();	
+			String errmsg = driver.findElement(invalidmobileerrormsg).getText();	
 			Reporter.generateReport(driver,extTest,Status.FAIL,errmsg);
-			driver.findElement(Locators.closebtn).click();
+			driver.findElement(closebtn).click();
 			}
 			catch(TimeoutException te) {
 				Reporter.generateReport(driver,extTest,Status.PASS,"Invalid mobile number accepted");
@@ -170,11 +181,11 @@ public class LoginPage{
 		try {
 			System.out.print("Enter the otp : ");
 			invalidotp = scanner.next();
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otpentry)).sendKeys(invalidotp);
-			driver.findElement(Locators.verifybutton).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(otpentry)).sendKeys(invalidotp);
+			driver.findElement(verifybutton).click();
 			wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			Reporter.generateReport(driver,extTest,Status.FAIL,"Invalid otp number is not accepted");
-			driver.findElement(Locators.closebtn).click();
+			driver.findElement(closebtn).click();
 		}
 		catch (TimeoutException te) {
 			Reporter.generateReport(driver,extTest,Status.PASS,"Invalid otp number is acccepted");

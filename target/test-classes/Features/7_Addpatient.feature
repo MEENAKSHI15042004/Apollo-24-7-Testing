@@ -1,6 +1,10 @@
 Feature:Add patient successfully
-Scenario:Verification of adding the Patient succesfully
+
+Background:
 When user select the add patient
+
+Scenario:Verify adding a patient succesfully
+
 And user enter the first name "<first name>"
 And user enter the last name "<last name>"
 And user enter the dob

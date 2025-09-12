@@ -3,20 +3,20 @@ package com.stepDefinitions;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.Scheduleappointmentpage;
+import com.pages.ScheduleAppointmentPage;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ScheduleAppointmentStep {
+public class ScheduleAppointmentSteps {
 
-	Scheduleappointmentpage scheduleappointmentpage;
+	ScheduleAppointmentPage scheduleappointmentpage;
 	WebDriver driver = Hooks.driver;
 	ExtentTest extTest = Hooks.extTest;
 	
 	@When("user select the appointment date")
 	public void user_select_the_appointment_date() {
-	  scheduleappointmentpage = new Scheduleappointmentpage(driver, extTest);
+	  scheduleappointmentpage = new ScheduleAppointmentPage(driver, extTest);
 	  scheduleappointmentpage.date();
 	  
 	}

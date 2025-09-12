@@ -7,7 +7,7 @@ import com.pages.ConfirmAppointmentPage;
 
 import io.cucumber.java.en.When;
 
-public class ConfirmAppointmentPageStep {
+public class ConfirmAppointmentPageSteps {
 	
 	ConfirmAppointmentPage confirmappointmentpage;
 	WebDriver driver = Hooks.driver;

@@ -9,7 +9,7 @@ import com.parameters.ExcelReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AddPatientPageStep {
+public class AddPatientPageSteps {
 	
 	AddPatientPage addpatientpage;
 	WebDriver driver = Hooks.driver;

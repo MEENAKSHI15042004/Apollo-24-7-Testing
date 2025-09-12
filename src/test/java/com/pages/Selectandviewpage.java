@@ -14,12 +14,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectRepository.Locators;
 import com.setup.Base;
 import com.setup.PropertyReader;
 import com.setup.Reporter;
 
-public class Selectandviewpage {
+public class SelectAndViewPage {
 	
 	WebDriver driver;
 	WebDriverWait wait;
@@ -27,8 +26,13 @@ public class Selectandviewpage {
 	ExtentTest extTest;
 	Properties prop = PropertyReader.readProperties();
 	
+	 // view details
+	 public static By viewdetails = By.xpath("//h1[normalize-space(text())='Dr. Vijay Dureja']");
+
+	// select consultation type
+	public static By consultationtype = By.xpath("//button[normalize-space(text())='Visit Doctor']");
 	
-	public Selectandviewpage(WebDriver driver,ExtentTest extTest4) {
+	public SelectAndViewPage(WebDriver driver,ExtentTest extTest4) {
 		this.driver = Base.driver;
 		wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		this.extTest = extTest4;
@@ -37,16 +41,10 @@ public class Selectandviewpage {
 	public void selectdoctor() {
 		  try {
 		        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-		        // Wait explicitly until the button is clickable
 		        WebElement selectdoctor = wait.until(ExpectedConditions.elementToBeClickable(
 		            By.xpath("//p[normalize-space(text())='Dr. Vijay Dureja']")
 		        ));
-		        
-		        // Scroll into view just in case
 		        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});", selectdoctor);
-
-		        // Click the button
 		        selectdoctor.click();
 		        
 		        Reporter.generateReport(driver, extTest, Status.PASS, "Doctor selected Successfully");
@@ -60,7 +58,7 @@ public class Selectandviewpage {
 	public void viewdetails() {
 		try {
 			wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.viewdetails));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(viewdetails));
 			Reporter.generateReport(driver, extTest, Status.PASS, "Doctor details viewed successfully");
 		}
 		catch (TimeoutException te) {

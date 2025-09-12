@@ -1,11 +1,7 @@
 package com.stepDefinitions;
 
 import java.util.Properties;
-import java.util.Scanner;
-
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.LoginPage;
 import com.parameters.ExcelReader;
@@ -15,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStep {
+public class LoginSteps {
 	
 	LoginPage loginpage;
 	WebDriver driver = Hooks.driver;

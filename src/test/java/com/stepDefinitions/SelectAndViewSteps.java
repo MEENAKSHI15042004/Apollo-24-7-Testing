@@ -3,20 +3,20 @@ package com.stepDefinitions;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.Selectandviewpage;
+import com.pages.SelectAndViewPage;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SelectAndViewStep {
+public class SelectAndViewSteps {
 	
-	Selectandviewpage selectandviewpage;
+	SelectAndViewPage selectandviewpage;
 	WebDriver driver = Hooks.driver;
 	ExtentTest extTest = Hooks.extTest;
 	
 	@When("the user select the doctor from the list")
 	public void the_user_select_the_doctor_from_the_list() {
-	   selectandviewpage = new Selectandviewpage(driver,extTest);
+	   selectandviewpage = new SelectAndViewPage(driver,extTest);
 	   selectandviewpage.selectdoctor();
 	   
 	}

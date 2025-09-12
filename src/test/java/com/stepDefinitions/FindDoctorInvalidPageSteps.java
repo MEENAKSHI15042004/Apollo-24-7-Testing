@@ -8,7 +8,7 @@ import com.parameters.ExcelReader;
 
 import io.cucumber.java.en.When;
 
-public class FindDoctorInvalidPageStep {
+public class FindDoctorInvalidPageSteps {
 	
 	FindDoctorInvalidPage finddoctorinvalidpage;
 	WebDriver driver = Hooks.driver;

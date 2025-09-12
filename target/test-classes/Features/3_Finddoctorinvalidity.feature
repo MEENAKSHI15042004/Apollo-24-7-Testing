@@ -1,6 +1,10 @@
-Feature:Find Doctor unsuccessfull
-Scenario:Verification of find the doctor unsuccessfull
+Feature:Find Doctor unsuccessful
+
+Background:
 When user clicks the find doctor
+
+Scenario:Verify unsuccessful attempts to find a doctor
+
 And user enter date only
 And user enter date and location only "<location>"
 And user enter speciality and date only

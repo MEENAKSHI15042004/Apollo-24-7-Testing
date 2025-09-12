@@ -1,23 +1,17 @@
 package com.pages;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectRepository.Locators;
 import com.setup.Base;
 import com.setup.PropertyReader;
 import com.setup.Reporter;
@@ -30,6 +24,30 @@ public class FindDoctorPage {
 	ExtentTest extTest;
 	Properties prop = PropertyReader.readProperties();
 	
+	 // click find doctor
+	public static By finddoctor = By.xpath("//a[text()='Find Doctors']");
+	
+	// enter speciality
+	public static By enterspeciality = By.xpath("//input[@placeholder='Enter Speciality']\r\n");
+	
+	// select specality
+	public static By selectspeciality = By.xpath("//span[normalize-space(text())='Anaesthesia']");
+	
+	// date icon
+	public static By dateicon = By.xpath("//span[@class='QuickBook_dateImage__hbyKS icon-date']");
+	
+	//select date
+	public static By date = By.xpath("//abbr[text()='19']");
+	
+	// validate date
+	public static By validatedate = By.xpath("//span[text()='Fri 19th Sep']");
+	
+	// location
+	public static By location = By.xpath("//input[@placeholder='Search location']");
+	
+	// submit button
+	public static By submitbtn = By.xpath("//span[text()='Submit']");
+	
 	
 	public FindDoctorPage(WebDriver driver,ExtentTest extTest3) {
 		this.driver = Base.driver;
@@ -39,14 +57,14 @@ public class FindDoctorPage {
 	}
 	public void clickfinddoctor() {
 		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(Locators.finddoctor)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(finddoctor)).click();
 	}
 
 	
 	public void enterspecality() {
 		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.enterspeciality)).click();
-	        wait.until(ExpectedConditions.elementToBeClickable(Locators.selectspeciality)).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(enterspeciality)).click();
+	        wait.until(ExpectedConditions.elementToBeClickable(selectspeciality)).click();
 
 			Reporter.generateReport(driver,extTest,Status.PASS,"specality selected successfully");
 		}
@@ -57,10 +75,10 @@ public class FindDoctorPage {
 	
 	public void selectdate() {
 		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dateicon)).click();
-			driver.findElement(Locators.date).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(dateicon)).click();
+			driver.findElement(date).click();
 			
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.validatedate));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(validatedate));
 			Reporter.generateReport(driver,extTest,Status.PASS,"Date selected successfully");
 		}
 		catch(TimeoutException te) {
@@ -69,76 +87,28 @@ public class FindDoctorPage {
 	}
 	public void selectlocation() {
 	    try {
-	        // Wait for location input and type "chennai"
-	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
-	        location.click();
-	        // location.clear();
-	        location.sendKeys("Chennai");
-
-	        // Wait for the suggestion to appear
-//	        WebElement suggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(), 'Chennai,Tamil Nadu')]")));
-//	        
-//	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-//
-//	        //Hover over suggestion and click
-//	        Actions actions = new Actions(driver);
-//	        actions.moveToElement(suggestion).click().perform();
-	        
+	     
+	        WebElement locationsearch = wait.until(ExpectedConditions.visibilityOfElementLocated(location));
+	        locationsearch.click();
+	        locationsearch.sendKeys("Chennai");	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	        
-
-	        // Report success
 	        Reporter.generateReport(driver, extTest, Status.PASS, "Location selected successfully");
 
 	    } catch (TimeoutException te) {
-	        // Fail the extent report
 	        Reporter.generateReport(driver, extTest, Status.FAIL, "Location not selected successfully");
 	    }
 	}
 	
-//	public void selectlocation() {
-//	    try {
-//	    	
-//	    	String city = "Chennai";
-//	        // Type city in the location box
-//	        WebElement location = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.location));
-//	        location.click();
-//	        location.clear();
-//	        location.sendKeys(city);
-//
-//	        // Wait for dropdown list to appear
-//	        List<WebElement> suggestions = wait.until(ExpectedConditions
-//	                .visibilityOfAllElementsLocatedBy(By.xpath("//li//div[contains(@class,'css')]")));
-//
-//	        // Loop through suggestions and click the matching one
-//	        for (WebElement option : suggestions) {
-//	            if (option.getText().trim().equalsIgnoreCase(city + ", Tamil Nadu")) {
-//	                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-//	                Reporter.generateReport(driver, extTest, Status.PASS, "Location selected: " + city);
-//	                return;
-//	            }
-//	        }
-//
-//	        Reporter.generateReport(driver, extTest, Status.FAIL, "No matching suggestion found for: " + city);
-//
-//	    } catch (TimeoutException te) {
-//	        Reporter.generateReport(driver, extTest, Status.FAIL, "Location not selected successfully");
-//	    }
-//	}
-
-
-
 	public void submit() {
 		try {
 		
-		driver.findElement(Locators.submitbtn).click();
-		
+		 driver.findElement(submitbtn).click();
 		 Reporter.generateReport(driver, extTest, Status.PASS, "Submit successfully");
 	    }
 		catch (TimeoutException te) {
 			Reporter.generateReport(driver, extTest, Status.FAIL, "submit unsuccessfull");
 		}
 			
-		}
+	}
 		
 }
