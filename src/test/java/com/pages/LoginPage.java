@@ -169,11 +169,11 @@ public class LoginPage{
 			invalidmobile_no = invalidmobile_number;
 			invalidmobile.sendKeys(invalidmobile_no);
 			String errmsg = driver.findElement(invalidmobileerrormsg).getText();	
-			Reporter.generateReport(driver,extTest,Status.FAIL,errmsg);
+			Reporter.generateReport(driver,extTest,Status.PASS,errmsg);
 			driver.findElement(closebtn).click();
 			}
 			catch(TimeoutException te) {
-				Reporter.generateReport(driver,extTest,Status.PASS,"Invalid mobile number accepted");
+				Reporter.generateReport(driver,extTest,Status.FAIL,"Invalid mobile number accepted");
 			}
 	}
 	
@@ -184,11 +184,11 @@ public class LoginPage{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(otpentry)).sendKeys(invalidotp);
 			driver.findElement(verifybutton).click();
 			wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-			Reporter.generateReport(driver,extTest,Status.FAIL,"Invalid otp number is not accepted");
+			Reporter.generateReport(driver,extTest,Status.PASS,"Invalid otp number is not accepted");
 			driver.findElement(closebtn).click();
 		}
 		catch (TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"Invalid otp number is acccepted");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"Invalid otp number is acccepted");
 		}
 	}
 

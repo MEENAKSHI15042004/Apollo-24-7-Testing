@@ -71,10 +71,10 @@ public class FindDoctorInvalidPage {
 			driver.findElement(submitbtn).click();
 
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-			Reporter.generateReport(driver,extTest,Status.FAIL,"Please select Area/Pin code and speciality");
+			Reporter.generateReport(driver,extTest,Status.PASS,"Please select Area/Pin code and speciality");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}
@@ -96,10 +96,10 @@ public class FindDoctorInvalidPage {
 			driver.findElement(submitbtn).click();
 
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-			Reporter.generateReport(driver,extTest,Status.FAIL,"Please select the speciality");
+			Reporter.generateReport(driver,extTest,Status.PASS,"Please select the speciality");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}
@@ -122,10 +122,10 @@ public class FindDoctorInvalidPage {
 			driver.findElement(submitbtn).click();
 
 			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-			Reporter.generateReport(driver,extTest,Status.FAIL,"Please select Area/Pin code");
+			Reporter.generateReport(driver,extTest,Status.PASS,"Please select Area/Pin code");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}
@@ -148,10 +148,10 @@ public class FindDoctorInvalidPage {
 	       driver.findElement(submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	        Reporter.generateReport(driver,extTest,Status.FAIL,"Please select the location in India");
+	        Reporter.generateReport(driver,extTest,Status.PASS,"Please select the location in India");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}
@@ -176,10 +176,10 @@ public class FindDoctorInvalidPage {
 	        driver.findElement(submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	        Reporter.generateReport(driver,extTest,Status.FAIL,"Pin code length is exceeded");
+	        Reporter.generateReport(driver,extTest,Status.PASS,"Pin code length is exceeded");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}
@@ -203,10 +203,10 @@ public class FindDoctorInvalidPage {
 	        driver.findElement(submitbtn).click();
 	        
 	        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-	        Reporter.generateReport(driver,extTest,Status.FAIL,"Please enter and select the location");
+	        Reporter.generateReport(driver,extTest,Status.PASS,"Please enter and select the location");
 		}
 		catch(TimeoutException te) {
-			Reporter.generateReport(driver,extTest,Status.PASS,"submitted successfully");
+			Reporter.generateReport(driver,extTest,Status.FAIL,"submitted successfully");
 		}
 		
 	}

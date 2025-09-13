@@ -27,7 +27,7 @@ public class ScheduleAppointmentPage {
 	Properties prop = PropertyReader.readProperties();
 	
 	//select date
-	public static By selectdate1 = By.xpath("//p[normalize-space(text())='14']");
+	public static By selectdate1 = By.xpath("//p[normalize-space(text())='18']");
 	
 	// select time
 	public static By selecttime = By.xpath("//p[normalize-space(text())='06:45 PM']");

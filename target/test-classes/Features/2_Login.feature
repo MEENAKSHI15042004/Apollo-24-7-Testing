@@ -3,7 +3,7 @@ Feature:Login
 Background:
 Given user is on the login page
 
-Scenario:Verify login failure with invalid mabile number
+Scenario:Verify login failure with invalid mobile number
 
 When the user enter the invalid Mobile Number as "<invalid_mobile_no>"
 Then an error message is displayed "Invalid mobile number"
